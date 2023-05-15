@@ -7,6 +7,7 @@ export const HeaderContainer = styled.header`
   justify-content: space-between;
   gap: 1rem;
   width: 100%;
+  height: 4rem;
 `;
 
 export const UserContainer = styled.div`
