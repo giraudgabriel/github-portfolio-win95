@@ -21,7 +21,7 @@ class GithubService {
   async getReadme(username: string, repoName: string) {
     const response = await fetch(`https://raw.githubusercontent.com/${username}/${repoName}/master/README.md`);
     const data = await response.text();
-    return data;
+    return data === '404: Not Found' ? 'No README.md' : data;
   }
 
   getUsername() {

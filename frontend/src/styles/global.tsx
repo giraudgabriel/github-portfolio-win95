@@ -70,5 +70,119 @@ export const GlobalStyles = createGlobalStyle`
      transform: translateY(-50%);
    }
   }
+
+  .terminal {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    color: #fff;
+    font-family: monospace;
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .terminal__header {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    background-color: #333;
+    border-bottom: 1px solid #000;
+  }
+
+  .terminal__header__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 3rem;
+    height: 1rem;
+  }
+
+  .terminal__header__button {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+  }
+
+  .terminal__header__button--red {
+    background-color: #ff5f57;
+  }
+
+  .terminal__header__button--yellow {
+    background-color: #ffbd2e;
+  }
+
+  .terminal__header__button--green {
+    background-color: #28ca41;
+  }
+
+  .terminal__header__title {
+    margin-left: 1rem;
+  }
+
+  .terminal__body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    background-color: #000;
+  }
+
+  .terminal__body__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+  .terminal__body__content__line {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .terminal__body__content__line__text {
+    margin-left: 0.5rem;
+  }
+
+  .terminal__body__input {
+    display: flex;
+    align-items: center;
+  }
+
+  .terminal__body__input__text {
+    margin-right: 0.5rem;
+  }
+
+  .terminal__body__input__input {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-family: monospace;
+    font-size: 1.2rem;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .terminal__body__input__input::placeholder {
+    color: #fff;
+  }
+
+  .terminal__body__input__input:focus {
+    outline: none;
+  }
+
+  .terminal__body__input__input::-ms-clear {
+    display: none;
+  }
+
+  .terminal__body__input__input::-webkit-search-cancel-button {
+    display: none;
+  }
+
+  .terminal__body__input__input::-webkit-input-placeholder {
+    color: #fff;
+  }
 }
 `;

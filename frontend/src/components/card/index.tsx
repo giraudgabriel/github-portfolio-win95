@@ -25,7 +25,10 @@ export const Card = ({ user }: IUserCardProps) => {
   };
 
   const goToRepos = () => {
-    window.open(user?.repos_url ?? "", "_blank");
+    window.open(
+      `https://github.com/${user?.login}?tab=repositories&q=&type=public&language=&sort=`,
+      "_blank"
+    );
   };
 
   const readme = useGithubReadme(user?.login ?? "");

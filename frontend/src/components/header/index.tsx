@@ -41,8 +41,10 @@ export const Header = () => {
             <MenuList style={STYLES.MENU} onClick={closeMenu}>
               {WINDOWS.map((item) => (
                 <MenuListItem
+                  size="lg"
                   key={item.title}
                   onClick={() => openMenuItem(item)}
+                  style={STYLES.MENU_ITEM}
                 >
                   <span role="img" aria-label={item.icon}>
                     {item.icon}

@@ -127,6 +127,9 @@ export const STYLES: IStyles = {
   },
   WINDOW_CONTENT: {
     marginTop: 16,
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "wrap",
   },
   TOOLBAR: {
     position: "fixed",

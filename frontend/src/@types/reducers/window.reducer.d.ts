@@ -8,6 +8,7 @@ declare namespace WindowReducer {
     icon: string;
     minimized?: boolean;
     minimazable?: boolean;
+    style?: React.CSSProperties;
   }
 
   export type State = {

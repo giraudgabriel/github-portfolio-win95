@@ -12,6 +12,7 @@ const STYLES = {
     overflow: "auto",
     maxHeight: "30rem",
     maxWidth: "45rem",
+    height: "100%",
   },
   HEADER: {
     display: "flex",
@@ -56,7 +57,7 @@ export const CustomWindow = ({
           </Button>
         </div>
       </WindowHeader>
-      <WindowContent>
+      <WindowContent style={data?.style}>
         <div>{children}</div>
       </WindowContent>
     </Window>
