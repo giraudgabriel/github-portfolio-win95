@@ -1,30 +1,35 @@
+
+import { createSlice } from '@reduxjs/toolkit'
+
 const initialState: WindowReducer.State = {
-  component: null,
-  height: window.innerHeight,
-  width: window.innerWidth,
+  windows: [],
 };
 
-export default function windowReducer(
-  state = initialState,
-  action: WindowReducer.Action
-) {
-  switch (action.type) {
-    case 'SET_WIDTH':
-      return {
-        ...state,
-        width: action.payload,
-      };
-    case 'SET_HEIGHT':
-      return {
-        ...state,
-        height: action.payload,
-      };
-    case 'SET_COMPONENT':
-      return {
-        ...state,
-        component: action.payload,
-      };
-    default:
-      return state;
+const windowsSlice = createSlice({
+  name: 'windows',
+  initialState,
+  reducers: {
+    addWindow(state, action) {
+      state.windows = [...state.windows.filter(x => x.id != action.payload.id), {
+        ...action.payload,
+        minimized: false,
+        component: null,
+      }]
+    },
+    closeWindow(state, action) {
+      state.windows = state.windows.filter(x => x.id != action.payload)
+    },
+    minimizeWindow(state, action) {
+      state.windows = state.windows.map(x => {
+        if (x.id == action.payload) {
+          x.minimized = !x.minimized
+        }
+        return x
+      })
+    }
   }
-}
+})
+
+export const { addWindow, closeWindow, minimizeWindow } = windowsSlice.actions
+
+export default windowsSlice.reducer

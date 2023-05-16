@@ -1,11 +1,20 @@
 declare namespace WindowReducer {
+  export type Data = {
+    component?: any;
+    closeable?: boolean;
+    title: string;
+    id: string;
+    image?: string;
+    icon: string;
+    minimized?: boolean;
+    minimazable?: boolean;
+  }
+
   export type State = {
-    width: number;
-    height: number;
-    component: React.ReactNode;
+    windows: Data[];
   };
 
-  export type Actions = 'SET_WIDTH' | 'SET_HEIGHT' | 'SET_COMPONENT';
+  export type Actions = 'WINDOW_ADD';
 
   export type Action = {
     type: Actions;

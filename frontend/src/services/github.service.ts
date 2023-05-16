@@ -1,5 +1,5 @@
 class GithubService {
- 
+
   baseUrl: string;
 
   constructor() {
@@ -16,6 +16,16 @@ class GithubService {
     const response = await fetch(`${this.baseUrl}/users/${username}/repos`);
     const data = await response.json();
     return data as Github.Repo[];
+  }
+
+  async getReadme(username: string, repoName: string) {
+    const response = await fetch(`https://raw.githubusercontent.com/${username}/${repoName}/master/README.md`);
+    const data = await response.text();
+    return data;
+  }
+
+  getUsername() {
+    return import.meta.env.VITE_GITHUB_USERNAME;
   }
 }
 

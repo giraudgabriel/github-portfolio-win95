@@ -9,56 +9,50 @@ import {
 
 import { useGithubUser } from "@/hooks/useGithubUser";
 import { useState } from "react";
-import { UserContainer } from "./styles";
-
-interface IHeaderStyles {
-  MENU: React.CSSProperties;
-  APP_BAR: React.CSSProperties;
-  BUTTON: React.CSSProperties;
-}
-const STYLES: IHeaderStyles = {
-  MENU: {
-    position: "absolute",
-    left: "0",
-    top: "100%",
-  },
-  APP_BAR: {
-    width: "100%",
-    height: "4rem",
-  },
-  BUTTON: {
-    width: "15rem",
-    height: "3rem",
-  },
-};
+import { STYLES, UserContainer } from "./styles";
+import { useDispatch } from "react-redux";
+import { addWindow } from "@/store/reducers/window/window.reducer";
+import { WINDOWS } from "@/data/windows";
+import githubService from "@/services/github.service";
 
 export const Header = () => {
   const [open, setOpen] = useState(false);
-  const user = useGithubUser("giraudgabriel");
+  const user = useGithubUser(githubService.getUsername());
+  const dispatch = useDispatch();
 
   const closeMenu = () => setOpen(false);
 
   const openOrCloseMenu = () => setOpen(!open);
 
+  function openMenuItem(item: WindowReducer.Data): void {
+    closeMenu();
+    dispatch(addWindow(item));
+  }
+
   return (
     <AppBar style={STYLES.APP_BAR}>
-      <Toolbar>
+      <Toolbar style={STYLES.TOOLBAR}>
         <Button onClick={openOrCloseMenu} active={open} style={STYLES.BUTTON}>
           <UserContainer>
             <Avatar src={user?.avatar_url} size={32} />
             {user?.name}
           </UserContainer>
+          {open && (
+            <MenuList style={STYLES.MENU} onClick={closeMenu}>
+              {WINDOWS.map((item) => (
+                <MenuListItem
+                  key={item.title}
+                  onClick={() => openMenuItem(item)}
+                >
+                  <span role="img" aria-label={item.icon}>
+                    {item.icon}
+                  </span>
+                  {item.title}
+                </MenuListItem>
+              ))}
+            </MenuList>
+          )}
         </Button>
-        {open && (
-          <MenuList style={STYLES.MENU} onClick={closeMenu}>
-            <MenuListItem>
-              <span role="img" aria-label="👨‍💻">
-                👨‍💻
-              </span>
-              Profile
-            </MenuListItem>
-          </MenuList>
-        )}
       </Toolbar>
     </AppBar>
   );

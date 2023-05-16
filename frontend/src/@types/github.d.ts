@@ -1,5 +1,6 @@
 declare namespace Github {
   export type User = {
+    [key: string]: any;
     avatar_url: string;
     bio: string;
     blog: string;

@@ -101,3 +101,40 @@ export const TitleImage = styled.img`
   height: 100%;
   object-fit: cover;
   `;
+
+interface IStyles {
+  WINDOW: React.CSSProperties;
+  WINDOW_CONTENT: React.CSSProperties;
+  APP_BAR: React.CSSProperties;
+  TOOLBAR: React.CSSProperties;
+}
+
+export const STYLES: IStyles = {
+  APP_BAR: {
+    position: "fixed",
+    bottom: 0,
+    left: 0,
+    right: 0,
+    minWidth: window.innerWidth,
+    minHeight: window.innerHeight,
+    overflow: "auto",
+    width: "100%",
+    height: "100%",
+  },
+  WINDOW: {
+    height: "100%",
+    width: "100%",
+  },
+  WINDOW_CONTENT: {
+    marginTop: 16,
+  },
+  TOOLBAR: {
+    position: "fixed",
+    bottom: 0,
+    left: 0,
+    right: 0,
+    minWidth: window.innerWidth,
+    overflow: "auto",
+    width: "100%",
+  },
+};

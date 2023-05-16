@@ -10,14 +10,20 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.5",
     "@types/react-redux": "^7.1.25",
+    "html2canvas": "^1.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-markdown": "^8.0.7",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.11.0",
     "react95": "^4.0.0",
     "redux": "^4.2.1",
-    "styled-components": "^5.3.10"
+    "rehype-raw": "^6.1.1",
+    "remark-gfm": "^3.0.1",
+    "styled-components": "^5.3.10",
+    "use-react-screenshot": "^3.0.0"
   },
   "devDependencies": {
     "@types/node": "^18.16.0",

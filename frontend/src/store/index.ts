@@ -1,6 +1,18 @@
-import { createStore } from 'redux';
-import rootReducer from './reducers';
+import { configureStore } from '@reduxjs/toolkit'
 
-const store = createStore(rootReducer);
+import windowsReducer from './reducers/window/window.reducer'
 
-export default store;
+const rootReducer = {
+  windows: windowsReducer
+}
+
+
+const store = configureStore({
+  reducer: rootReducer,
+  devTools: true
+})
+
+export type RootState = ReturnType<typeof store.getState>
+
+
+export default store

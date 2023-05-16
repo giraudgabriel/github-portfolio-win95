@@ -28,3 +28,9 @@ export const NewsContainer = styled.div`
   padding: 1rem;
   margin-bottom: 1rem;
 `;
+
+export const ButtonText = styled.span`
+  font-size: 0.875rem; 
+  font-weight: 500;
+  text-overflow: ellipsis;
+`;
