@@ -1,7 +1,7 @@
 import { Card } from '@/components/card';
 import { AVAILABLE_FONTS, WINDOWS } from "@/data/windows";
 import store from "@/store";
-import { addWindow, setFontFamily } from "@/store/reducers/window/window.reducer";
+import { addWindow, setBackgroundColor, setFontFamily } from "@/store/reducers/window/window.reducer";
 import githubService from './github.service';
 
 class TerminalService {
@@ -15,6 +15,18 @@ class TerminalService {
     }
     store.dispatch(setFontFamily(font))
     return "Font changed to " + font + " successfully";
+  }
+
+  isValidColor(color: string) {
+    return /(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(color);
+  }
+
+  background(color: string) {
+    if (!this.isValidColor(color)) {
+      return "Error - invalid color - background <color> format - #000000";
+    }
+    store.dispatch(setBackgroundColor(color))
+    return "Background changed to " + color + " successfully";
   }
 
   async dev(username: string) {

@@ -15,7 +15,7 @@ class WindowService {
 
   add(window: WindowReducer.Data) {
     if (!window.id) throw new Error("Window must have an id");
-    store.dispatch(addWindow(window))
+    store.dispatch(addWindow({ ...window, component: null }))
   }
 
 }

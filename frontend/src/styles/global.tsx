@@ -3,9 +3,11 @@ import { createGlobalStyle } from "styled-components";
 import { styleReset } from "react95";
 import ms_sans_serif from "react95/dist/fonts/ms_sans_serif.woff2";
 import ms_sans_serif_bold from "react95/dist/fonts/ms_sans_serif_bold.woff2";
+import { getTextColor } from "@/components/utils/styles";
 
 type Theme = {
   font: string;
+  background: string;
 };
 
 export const GlobalStyles = createGlobalStyle<Theme>`
@@ -26,6 +28,9 @@ export const GlobalStyles = createGlobalStyle<Theme>`
     font-family: ${({ font }) => {
       return font;
     }};
+    background: ${({ background }) => {
+      return background;
+    }}
   }
 
   .close-icon {
@@ -190,5 +195,8 @@ export const GlobalStyles = createGlobalStyle<Theme>`
   .terminal__body__input__input::-webkit-input-placeholder {
     color: #fff;
   }
-}
+
+  .text-color {
+    color: ${({ background }) => getTextColor(background)};
+  }
 `;

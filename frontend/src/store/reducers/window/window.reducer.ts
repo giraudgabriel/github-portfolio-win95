@@ -1,9 +1,11 @@
 
+import { WINDOWS } from '@/data/windows';
 import { createSlice } from '@reduxjs/toolkit'
 
-const initialState: WindowReducer.State = {
-  windows: [],
+export const initialState: WindowReducer.State = {
+  windows: WINDOWS.filter(x => x.id == 'terminal'),
   fontFamily: 'monospace',
+  backgroundColor: '#1C6964',
 };
 
 const windowsSlice = createSlice({
@@ -11,21 +13,24 @@ const windowsSlice = createSlice({
   initialState,
   reducers: {
     addWindow(state, action) {
-      const window = action.payload as WindowReducer.Data;
-      window.component = null;
-      window.minimized = false;
+      const window = action.payload;
+
+      const data = {
+        ...window,
+        component: null,
+        minimized: false,
+      }
 
 
       state.windows = [...state.windows.filter(x => x.id != window.id), {
-        ...window,
+        ...data,
         windowStyle: state.windows.length > 0 ? {
-          top: Number(state.windows.at(-1)?.windowStyle?.top) + 30,
           zIndex: state.windows.length + 1
         } : {
           top: 0,
           left: 0,
           zIndex: 0
-        }
+        },
       }]
     },
     closeWindow(state, action) {
@@ -41,10 +46,13 @@ const windowsSlice = createSlice({
     },
     setFontFamily(state, action) {
       state.fontFamily = action.payload
+    },
+    setBackgroundColor(state, action) {
+      state.backgroundColor = action.payload
     }
   }
 })
 
-export const { addWindow, closeWindow, minimizeWindow, setFontFamily } = windowsSlice.actions
+export const { addWindow, closeWindow, minimizeWindow, setFontFamily, setBackgroundColor } = windowsSlice.actions
 
 export default windowsSlice.reducer

@@ -17,6 +17,7 @@ declare namespace WindowReducer {
   export type State = {
     windows: Data[];
     fontFamily: string;
+    backgroundColor: string;
   };
 
   export type Actions = 'WINDOW_ADD';

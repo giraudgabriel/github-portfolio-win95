@@ -12,7 +12,7 @@ export const DesktopIcon = ({ window }: DesktopIconProps) => {
   return (
     <IconContainer onClick={open}>
       <Icon>{window.icon}</Icon>
-      <IconText>{window.title}</IconText>
+      <IconText className="text-color">{window.title}</IconText>
     </IconContainer>
   );
 };

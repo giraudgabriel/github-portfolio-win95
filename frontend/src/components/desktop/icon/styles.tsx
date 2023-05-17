@@ -13,9 +13,13 @@ export const IconContainer = styled.div`
     background-color: #c0c0c0;
   }
 
-  &:focus {
-    background-color: red;
+  &:active {
     border: 1px dotted black;
+    transform: scale(0.95);
+  }
+
+  &:focus {
+    outline: none;
   }
 `;
 

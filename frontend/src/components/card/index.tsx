@@ -37,7 +37,7 @@ export const Card = ({ user }: IUserCardProps) => {
     <Row>
       <Column>
         <Column>
-          <Tooltip text={user?.html_url ?? ""} enterDelay={0}>
+          <Tooltip text={user?.html_url ?? ""} enterDelay={0} position="bottom">
             <Avatar
               src={user?.avatar_url}
               alt="avatar"

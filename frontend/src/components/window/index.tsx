@@ -30,6 +30,11 @@ export const CustomWindow = ({
         display: data?.minimized ? "none" : "block",
         ...data?.windowStyle,
       }}
+      onDrag={(e) => {
+        if (e.clientY < 0) {
+          minimize();
+        }
+      }}
     >
       <WindowHeader style={STYLES.HEADER}>
         <span>
@@ -44,7 +49,12 @@ export const CustomWindow = ({
           </Button>
         </div>
       </WindowHeader>
-      <WindowContent style={data?.style}>
+      <WindowContent
+        style={{
+          ...STYLES.WINDOW_CONTENT,
+          ...data?.style,
+        }}
+      >
         <div>{children}</div>
       </WindowContent>
     </Window>

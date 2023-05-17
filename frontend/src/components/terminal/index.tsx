@@ -1,5 +1,5 @@
 import terminalService from "@/services/terminal.service";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   TerminalBody,
   TerminalBodyContent,
@@ -9,16 +9,21 @@ import {
   TerminalContainer,
 } from "./styles";
 
-const Commands = ["help", "clear", "font", "dev"];
+const Commands = ["help", "clear", "font", "dev", "background"];
 
 type Command = (typeof Commands)[number];
 
 export const Terminal = () => {
   const [history, setHistory] = useState<string[]>([]);
+  const [commandHistory, setCommandHistory] = useState<string[]>([]);
   const [text, setText] = useState("");
+  const [index, setIndex] = useState(0);
 
   const execute = async (command: Command) => {
     setText("");
+    setIndex((index) => index + 1);
+    setCommandHistory((prev) => [...prev, command]);
+    
     const [cmd, ...args] = command.trim().split(" ");
     let result = "";
     switch (cmd) {
@@ -31,8 +36,13 @@ export const Terminal = () => {
       case "dev":
         result = await terminalService.dev(args[0]);
         break;
+      case "background":
+        result = terminalService.background(args[0]);
+        break;
       case "clear":
         setHistory([]);
+        setIndex(0);
+        setCommandHistory([]);
         return;
       default:
         result = "Command not found - type 'help' to see available commands";
@@ -40,6 +50,27 @@ export const Terminal = () => {
     }
     setHistory((prev) => [...prev, result]);
   };
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const onKeyPress = async (e: KeyboardEvent) => {
+    if (e.key === "ArrowUp") {
+      const goTo = index - 1 < 0 ? 0 : index - 1;
+      setIndex(goTo);
+      setText(commandHistory[goTo] || "");
+    } else if (e.key === "ArrowDown") {
+      const goTo =
+        index + 1 > commandHistory.length ? commandHistory.length : index + 1;
+      setIndex(goTo);
+      setText(commandHistory[goTo] || "");
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("keydown", onKeyPress);
+    return () => {
+      document.removeEventListener("keydown", onKeyPress);
+    };
+  }, [onKeyPress]);
 
   return (
     <TerminalContainer>

@@ -119,14 +119,12 @@ export const STYLES: IStyles = {
     overflow: "auto",
     width: "100%",
     height: "100%",
-    backgroundColor: "gray",
   },
   WINDOW: {
     height: "100%",
     width: "100%",
   },
   WINDOW_CONTENT: {
-    marginTop: "4rem",
     display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",
@@ -134,12 +132,11 @@ export const STYLES: IStyles = {
     position: "relative",
     width: "100%",
     height: "100%",
+    padding: "0 16px"
   },
   TOOLBAR: {
     position: "fixed",
     bottom: 0,
-    left: 0,
-    right: 0,
     minWidth: window.innerWidth,
     overflow: "auto",
     backgroundColor: "gainsboro",
@@ -152,7 +149,7 @@ export const STYLES: IStyles = {
     background: "rgb(198, 198, 198)",
   },
   MENU: {
-    position: "absolute",
+    position: "fixed",
     left: "0",
     bottom: "3.5rem",
   },
