@@ -4,7 +4,11 @@ import { styleReset } from "react95";
 import ms_sans_serif from "react95/dist/fonts/ms_sans_serif.woff2";
 import ms_sans_serif_bold from "react95/dist/fonts/ms_sans_serif_bold.woff2";
 
-export const GlobalStyles = createGlobalStyle`
+type Theme = {
+  font: string;
+};
+
+export const GlobalStyles = createGlobalStyle<Theme>`
   ${styleReset}
   @font-face {
     font-family: 'ms_sans_serif';
@@ -19,7 +23,9 @@ export const GlobalStyles = createGlobalStyle`
     font-style: normal
   }
   body {
-    font-family: 'ms_sans_serif';
+    font-family: ${({ font }) => {
+      return font;
+    }};
   }
 
   .close-icon {

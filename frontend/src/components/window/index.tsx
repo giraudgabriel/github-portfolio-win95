@@ -1,32 +1,12 @@
 import windowService from "@/services/window.service";
 import React from "react";
 import { Button, Window, WindowContent, WindowHeader } from "react95";
+import { STYLES } from "./styles";
 
 interface ICustomWindow {
   children?: React.ReactNode;
   data?: WindowReducer.Data;
 }
-
-const STYLES = {
-  WINDOW: {
-    overflow: "auto",
-    maxHeight: "30rem",
-    maxWidth: "45rem",
-    height: "100%",
-  },
-  HEADER: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    width: "100%",
-  },
-  DIV_HEADER: {
-    display: "flex",
-    alignItems: "center",
-    gap: "8px",
-    marginRight: "12px",
-  },
-};
 
 export const CustomWindow = ({
   children,
@@ -43,7 +23,14 @@ export const CustomWindow = ({
   };
 
   return (
-    <Window style={STYLES.WINDOW}>
+    <Window
+      style={{
+        ...STYLES.WINDOW,
+        opacity: data?.minimized ? 0 : 1,
+        display: data?.minimized ? "none" : "block",
+        ...data?.windowStyle,
+      }}
+    >
       <WindowHeader style={STYLES.HEADER}>
         <span>
           {data?.icon} {data?.title}

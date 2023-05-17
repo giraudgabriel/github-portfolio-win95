@@ -9,10 +9,14 @@ declare namespace WindowReducer {
     minimized?: boolean;
     minimazable?: boolean;
     style?: React.CSSProperties;
+    windowStyle?: React.CSSProperties;
+    props?: any;
+    hideInDesktop?: boolean;
   }
 
   export type State = {
     windows: Data[];
+    fontFamily: string;
   };
 
   export type Actions = 'WINDOW_ADD';

@@ -1,9 +1,8 @@
 import { Card } from "@/components/card";
-import { Contact } from "@/components/contact";
-import { Files } from "@/components/files";
-import { Projects } from "@/components/projects";
+import { Credits } from "@/components/credits";
 import { Settings } from "@/components/settings";
 import { Terminal } from "@/components/terminal";
+import { SelectOption } from "react95/dist/Select/Select.types";
 
 export const WINDOWS: WindowReducer.Data[] = [
   {
@@ -13,15 +12,6 @@ export const WINDOWS: WindowReducer.Data[] = [
     closeable: true,
     image: "👨‍💻",
     id: "profile",
-    minimazable: true,
-  },
-  {
-    icon: "📁",
-    component: Files,
-    title: "Files.exe",
-    closeable: true,
-    image: "📁",
-    id: "files",
     minimazable: true,
   },
   {
@@ -46,25 +36,57 @@ export const WINDOWS: WindowReducer.Data[] = [
     minimazable: true,
   },
   {
-    title: "Contact.exe",
-    icon: "📞",
-    component: Contact,
+    title: "Credits.exe",
+    icon: "💳",
+    component: Credits,
     closeable: true,
-    image: "📞",
-    id: "contact",
+    image: "💳",
+    id: "credits",
     minimazable: true,
   },
   {
-    title: "Projects.exe",
-    icon: "📁",
-    component: Projects,
+    title: "Dev.exe",
+    icon: "👨‍💻",
+    component: Card,
     closeable: true,
-    image: "📁",
-    id: "projects",
+    image: "👨‍💻",
+    id: "dev",
     minimazable: true,
-  },
+    hideInDesktop: true,
+  }
 ];
 
 export const COMPONENT_BY_ID = Object.fromEntries(
   WINDOWS.map((x) => [x.id, x.component])
 );
+
+export const AVAILABLE_FONTS: SelectOption<string>[] = [
+  {
+    value: "ms_sans_serif",
+    label: "MS Sans Serif",
+  },
+  {
+    value: "Arial",
+    label: "Arial",
+  },
+  {
+    value: "monospace",
+    label: "Monospace",
+  },
+  {
+    value: "tahoma",
+    label: "Tahoma",
+  },
+  {
+    value: "cursive",
+    label: "Cursive",
+  },
+  {
+    value: "sans-serif",
+    label: "Sans Serif",
+  },
+  {
+    value: "verdana",
+    label: "Verdana",
+  },
+];

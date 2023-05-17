@@ -30,32 +30,30 @@ export const Header = () => {
   }
 
   return (
-    <AppBar style={STYLES.APP_BAR}>
-      <Toolbar style={STYLES.TOOLBAR}>
-        <Button onClick={openOrCloseMenu} active={open} style={STYLES.BUTTON}>
-          <UserContainer>
-            <Avatar src={user?.avatar_url} size={32} />
-            {user?.name}
-          </UserContainer>
-          {open && (
-            <MenuList style={STYLES.MENU} onClick={closeMenu}>
-              {WINDOWS.map((item) => (
-                <MenuListItem
-                  size="lg"
-                  key={item.title}
-                  onClick={() => openMenuItem(item)}
-                  style={STYLES.MENU_ITEM}
-                >
-                  <span role="img" aria-label={item.icon}>
-                    {item.icon}
-                  </span>
-                  {item.title}
-                </MenuListItem>
-              ))}
-            </MenuList>
-          )}
-        </Button>
-      </Toolbar>
-    </AppBar>
+    <header style={STYLES.APP_BAR}>
+      <Button onClick={openOrCloseMenu} active={open} style={STYLES.BUTTON}>
+        <UserContainer>
+          <Avatar src={user?.avatar_url} size={32} />
+          {user?.name}
+        </UserContainer>
+        {open && (
+          <MenuList style={STYLES.MENU} onClick={closeMenu}>
+            {WINDOWS.map((item) => (
+              <MenuListItem
+                size="lg"
+                key={item.title}
+                onClick={() => openMenuItem(item)}
+                style={STYLES.MENU_ITEM}
+              >
+                <span role="img" aria-label={item.icon}>
+                  {item.icon}
+                </span>
+                {item.title}
+              </MenuListItem>
+            ))}
+          </MenuList>
+        )}
+      </Button>
+    </header>
   );
 };

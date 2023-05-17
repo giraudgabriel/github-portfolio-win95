@@ -1,21 +1,19 @@
 import { useEffect, useState } from "react";
 import githubService from "@/services/github.service";
 
-
 export function useGithubReadme(username: string) {
-  const [data, setData] = useState<string>();
+  const [data, setData] = useState<string | null>();
 
   useEffect(() => {
-    function handleUpdate(dataChanged: string) {
+    function handleUpdate(dataChanged: string | null) {
       setData(dataChanged);
     }
 
-    if (!username || data != null)
-      return;
+    if (!username) return;
     githubService
       .getReadme(username, username)
       .then((dataChanged) => handleUpdate(dataChanged));
-  }, [username, data]);
+  }, [username]);
 
   return data;
 }

@@ -1,3 +1,4 @@
+import { position } from "html2canvas/dist/types/css/property-descriptors/position";
 import styled from "styled-components";
 
 interface IPropsFlex {
@@ -107,29 +108,32 @@ interface IStyles {
   WINDOW_CONTENT: React.CSSProperties;
   APP_BAR: React.CSSProperties;
   TOOLBAR: React.CSSProperties;
+  MENU: React.CSSProperties;
 }
 
 export const STYLES: IStyles = {
   APP_BAR: {
     position: "fixed",
-    bottom: 0,
     left: 0,
     right: 0,
-    minWidth: window.innerWidth,
-    minHeight: window.innerHeight,
     overflow: "auto",
     width: "100%",
     height: "100%",
+    backgroundColor: "gray",
   },
   WINDOW: {
     height: "100%",
     width: "100%",
   },
   WINDOW_CONTENT: {
-    marginTop: 16,
+    marginTop: "4rem",
     display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",
+    zIndex: -1,
+    position: "relative",
+    width: "100%",
+    height: "100%",
   },
   TOOLBAR: {
     position: "fixed",
@@ -138,6 +142,18 @@ export const STYLES: IStyles = {
     right: 0,
     minWidth: window.innerWidth,
     overflow: "auto",
+    backgroundColor: "gainsboro",
     width: "100%",
+    borderStyle: "solid",
+    borderWidth: 2,
+    borderColor: "rgb(254, 254, 254) rgb(10, 10, 10) rgb(10, 10, 10) rgb(254, 254, 254)",
+    boxShadow: "rgb(223, 223, 223) 1px 1px 0px 1px inset, rgb(132, 133, 132) - 1px - 1px 0px 1px inset",
+    boxSizing: "border-box",
+    background: "rgb(198, 198, 198)",
+  },
+  MENU: {
+    position: "absolute",
+    left: "0",
+    bottom: "3.5rem",
   },
 };

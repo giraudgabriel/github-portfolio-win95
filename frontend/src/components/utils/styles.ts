@@ -26,6 +26,14 @@ export const Row = styled.div<IPropsFlex>`
   height: ${(props) => props.height || "auto"};
   margin: ${(props) => props.margin || "0"};
   padding: ${(props) => props.padding || "0"};
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+  }
 `;
 
 export const Column = styled.div<IPropsFlex>`

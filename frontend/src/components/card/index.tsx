@@ -31,7 +31,7 @@ export const Card = ({ user }: IUserCardProps) => {
     );
   };
 
-  const readme = useGithubReadme(user?.login ?? "");
+  const readme = useGithubReadme(user?.login ?? "") ?? user?.bio;
 
   return (
     <Row>
@@ -42,7 +42,7 @@ export const Card = ({ user }: IUserCardProps) => {
               src={user?.avatar_url}
               alt="avatar"
               square
-              size={256}
+              size="15rem"
               onClick={goToGithub}
             />
           </Tooltip>
