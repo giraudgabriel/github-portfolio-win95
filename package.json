@@ -1,5 +1,5 @@
 {
-  "name": "portfolio",
+  "name": "github-portfolio-win95",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -26,8 +26,7 @@
     "redux": "^4.2.1",
     "rehype-raw": "^6.1.1",
     "remark-gfm": "^3.0.1",
-    "styled-components": "^5.3.10",
-    "use-react-screenshot": "^3.0.0"
+    "styled-components": "^5.3.10"
   },
   "devDependencies": {
     "@types/node": "^18.16.0",
