@@ -1,5 +1,9 @@
 # Github Portfolio Win95
 
+<p align="center">
+<img src="public/logo.png" alt="Github Portfolio Win95" width="300" height="300" style="text-align:center">
+</p>
+
 ## About this project
 
 <p>This project aims to provide GitHub users with an enhanced portfolio creation experience by offering an old Windows 95-inspired interface. By embracing this retro aesthetic, developers who have a nostalgic connection to the classic operating system can easily create and customize their portfolios in a fun and unique way.
