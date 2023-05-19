@@ -4,7 +4,7 @@ import { Home } from "@/pages/home";
 
 const routes: RouteObject[] = [
   {
-    path: "/",
+    path: "/github-portfolio-win95",
     Component: Home,
   }
 ];
