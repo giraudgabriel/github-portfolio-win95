@@ -1,7 +1,7 @@
 # Github Portfolio Win95
 
 <p align="center">
-<img src="public/logo.png" alt="Github Portfolio Win95" width="300" height="300" style="text-align:center">
+<img src="public/logo.png" alt="Github Portfolio Win95" style="text-align:center">
 </p>
 
 ## About this project
