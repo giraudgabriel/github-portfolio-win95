@@ -2,7 +2,6 @@ import windowService from "@/services/window.service";
 import React from "react";
 import { Button, Window, WindowContent, WindowHeader } from "react95";
 import { STYLES, WindowIcon } from "./styles";
-import { useAppSelector } from "@/hooks/useAppSelector";
 
 interface ICustomWindow {
   children?: React.ReactNode;

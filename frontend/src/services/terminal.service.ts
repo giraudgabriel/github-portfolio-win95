@@ -1,4 +1,3 @@
-import { Card } from '@/components/card';
 import { AVAILABLE_FONTS, WINDOWS } from "@/data/windows";
 import store from "@/store";
 import { addWindow, setBackgroundColor, setFontFamily } from "@/store/reducers/window/window.reducer";
