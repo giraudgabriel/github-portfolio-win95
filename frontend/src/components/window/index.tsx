@@ -1,7 +1,8 @@
 import windowService from "@/services/window.service";
 import React from "react";
 import { Button, Window, WindowContent, WindowHeader } from "react95";
-import { STYLES } from "./styles";
+import { STYLES, WindowIcon } from "./styles";
+import { useAppSelector } from "@/hooks/useAppSelector";
 
 interface ICustomWindow {
   children?: React.ReactNode;
@@ -37,9 +38,9 @@ export const CustomWindow = ({
       }}
     >
       <WindowHeader style={STYLES.HEADER}>
-        <span>
+        <WindowIcon>
           {data?.icon} {data?.title}
-        </span>
+        </WindowIcon>
         <div style={STYLES.DIV_HEADER}>
           <Button onClick={minimize} disabled={!data?.minimazable}>
             <span className="minimize-icon" />

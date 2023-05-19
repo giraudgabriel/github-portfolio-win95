@@ -1,5 +1,5 @@
 import { CustomWindow } from "@/components/window";
-import { COMPONENT_BY_ID, WINDOWS } from "@/data/windows";
+import { COMPONENT_BY_ID, ICON_BY_ID, WINDOWS } from "@/data/windows";
 import { useAppSelector } from "@/hooks/useAppSelector";
 import React, { useMemo } from "react";
 
@@ -19,8 +19,15 @@ export const Home: React.FC = (): JSX.Element => {
 
   const openedWindows = useMemo(() => {
     return windows.map((window) => {
+      const icon = ICON_BY_ID[window.id];
       return (
-        <CustomWindow key={window.id} data={window}>
+        <CustomWindow
+          key={window.id}
+          data={{
+            ...window,
+            icon,
+          }}
+        >
           {renderContent(window)}
         </CustomWindow>
       );

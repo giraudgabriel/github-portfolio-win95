@@ -28,7 +28,7 @@ export const Icon = styled.div`
 `;
 
 export const IconText = styled.div`
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   text-align: center;
   text-overflow: ellipsis;
   overflow: hidden;

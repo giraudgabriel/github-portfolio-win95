@@ -7,6 +7,16 @@ import rehypeRaw from "rehype-raw";
 import { useGithubUser } from "@/hooks/useGithubUser";
 import githubService from "@/services/github.service";
 import { ButtonText } from "./styles";
+import {
+  Computer,
+  Computer2,
+  Earth,
+  Explorer100,
+  Folder,
+  Mail,
+  User,
+  Wab321019,
+} from "@react95/icons";
 
 interface IUserCardProps {
   user: Github.User | undefined;
@@ -47,46 +57,85 @@ export const Card = ({ user }: IUserCardProps) => {
             />
           </Tooltip>
           <Column gap="0.5px">
-            <Title size="1rem">👨‍💻{user?.name ?? "No name"}</Title>
+            <Title size="0.875rem">
+              <Computer2 width={16} height={16} />
+              {user?.name ?? "No name"}
+            </Title>
           </Column>
           <Column gap="0.5px">
-            {user?.company && <Text>🏢{user?.company}</Text>}
-            {user?.email && <Text>📧{user?.email}</Text>}
+            {user?.company && (
+              <Text>
+                <Computer width={16} height={16} /> {user?.company}
+              </Text>
+            )}
+            {user?.email && (
+              <Text>
+                <Mail width={16} height={16} /> {user?.email}
+              </Text>
+            )}
             {user?.blog && (
               <Link
                 onClick={() => {
                   window.open(user?.blog ?? "", "_blank");
                 }}
               >
-                🌐{user?.blog}
+                <Explorer100 width={16} height={16} /> {user?.blog}
               </Link>
             )}
-            {user?.location && <Text>📍{user?.location ?? "No Location"}</Text>}
+            {user?.location && (
+              <Text>
+                <Earth width={16} height={16} />{" "}
+                {user?.location ?? "No Location"}
+              </Text>
+            )}
+            {user?.twitter_username && (
+              <Text>
+                Twitter:{" "}
+                <Link onClick={goToTwitter}>@{user?.twitter_username}</Link>
+              </Text>
+            )}
           </Column>
         </Column>
       </Column>
       <Column>
         <Row justify="center" align="center">
           <Button onClick={goToRepos}>
-            <ButtonText>📂{user?.public_repos} repos</ButtonText>
-          </Button>
-          <Button>
-            <ButtonText>👥{user?.followers} followers</ButtonText>
-          </Button>
-          <Button>
-            <ButtonText>👤{user?.following} following</ButtonText>
-          </Button>
-          <Button onClick={goToTwitter} disabled={!user?.twitter_username}>
             <ButtonText>
-              <span role="img" aria-label="🐦">
-                🐦
-              </span>
-              {user?.twitter_username ?? "No Twitter"}
+              <Folder
+                width={16}
+                height={16}
+                style={{
+                  marginRight: "0.5rem",
+                }}
+              />
+              {user?.public_repos} repos
+            </ButtonText>
+          </Button>
+          <Button>
+            <ButtonText>
+              <User width={16} height={16} />
+              {user?.followers} followers
+            </ButtonText>
+          </Button>
+          <Button>
+            <ButtonText>
+              <Wab321019
+                width={16}
+                height={16}
+                style={{
+                  marginRight: "0.5rem",
+                }}
+              />
+              {user?.following} following
             </ButtonText>
           </Button>
         </Row>
 
-        <Column>
+        <Column
+          style={{
+            fontSize: "0.75rem",
+          }}
+        >
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             rehypePlugins={[rehypeRaw]}

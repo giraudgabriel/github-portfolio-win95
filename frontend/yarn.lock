@@ -465,6 +465,11 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
+"@react95/icons@^2.0.6":
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/@react95/icons/-/icons-2.0.6.tgz#72b732deb9460ed5a0f0673ab15c17acad47cf58"
+  integrity sha512-zLwi3S+UpnqcNuLcHd6ruqLJzVtCyfY8tQr1qCTaooF8s90Fhy1guGfrp4npJ/3mNLD3UbHLyH18iT9OuUwntQ==
+
 "@reduxjs/toolkit@^1.9.5":
   version "1.9.5"
   resolved "https://registry.yarnpkg.com/@reduxjs/toolkit/-/toolkit-1.9.5.tgz#d3987849c24189ca483baa7aa59386c8e52077c4"

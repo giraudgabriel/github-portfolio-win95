@@ -1,3 +1,4 @@
+import styled from "styled-components";
 
 interface IStyles {
   WINDOW_CONTENT: React.CSSProperties;
@@ -5,6 +6,18 @@ interface IStyles {
   HEADER: React.CSSProperties;
   DIV_HEADER: React.CSSProperties;
 }
+
+export const WindowIcon = styled.span`
+display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    img {
+      width: 16px;
+      height: 16px;
+    }
+`;
 
 export const STYLES: IStyles = {
   WINDOW: {

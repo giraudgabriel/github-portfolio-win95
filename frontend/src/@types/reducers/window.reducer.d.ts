@@ -5,7 +5,7 @@ declare namespace WindowReducer {
     title: string;
     id: string;
     image?: string;
-    icon: string;
+    icon?: any;
     minimized?: boolean;
     minimazable?: boolean;
     style?: React.CSSProperties;

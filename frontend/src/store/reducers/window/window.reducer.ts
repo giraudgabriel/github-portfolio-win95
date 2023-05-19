@@ -1,10 +1,10 @@
 
-import { WINDOWS } from '@/data/windows';
+import { AVAILABLE_FONTS, WINDOWS } from '@/data/windows';
 import { createSlice } from '@reduxjs/toolkit'
 
 export const initialState: WindowReducer.State = {
-  windows: WINDOWS.filter(x => x.id == 'terminal'),
-  fontFamily: 'monospace',
+  windows: WINDOWS.filter(x => x.id == 'credits'),
+  fontFamily: AVAILABLE_FONTS[0].value,
   backgroundColor: '#1C6964',
 };
 
@@ -19,6 +19,7 @@ const windowsSlice = createSlice({
         ...window,
         component: null,
         minimized: false,
+        icon: null,
       }
 
 

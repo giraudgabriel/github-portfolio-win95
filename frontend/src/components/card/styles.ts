@@ -33,4 +33,7 @@ export const ButtonText = styled.span`
   font-size: 0.875rem; 
   font-weight: 500;
   text-overflow: ellipsis;
+  align-self: center;
+  align-items: center;
+  word-break: none;
 `;

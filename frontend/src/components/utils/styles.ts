@@ -62,14 +62,14 @@ font-size: ${(props) => props.size || "1.25rem"};
 `;
 
 export const Text = styled.p<IFontSize>`
-font-size: ${(props) => props.size || "1rem"};
+font-size: ${(props) => props.size || "0.875rem"};
   font-weight: 400;
   margin-bottom: 1rem;
 `;
 
 export const Link = styled.a<IFontSize>`
 cursor:pointer;
-font-size: ${(props) => props.size || "1rem"};
+font-size: ${(props) => props.size || "0.875rem"};
   font-weight: 400;
   margin-bottom: 1rem;
   color: #0070f3;

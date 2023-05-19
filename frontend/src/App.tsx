@@ -5,27 +5,21 @@ import { RouterProvider } from "react-router-dom";
 import router from "@/routes";
 import { Provider } from "react-redux";
 import store from "./store";
-import { useState } from "react";
-import { initialState } from "@/store/reducers/window/window.reducer";
+import "@react95/icons/icons.css";
+import { useAppSelector } from "./hooks/useAppSelector";
+
+const Styles = () => {
+  const { fontFamily, backgroundColor } = useAppSelector(
+    (state) => state.windows
+  );
+  return <GlobalStyles font={fontFamily} background={backgroundColor} />;
+};
 
 const App = () => {
-  const [font, setFont] = useState(initialState.fontFamily);
-  const [background, setBackgroundColor] = useState(
-    initialState.backgroundColor
-  );
-
-  store.subscribe(() => {
-    const state = store.getState();
-    const { windows } = state;
-    const { fontFamily, backgroundColor } = windows;
-    if (fontFamily !== font) setFont(fontFamily);
-    if (background !== backgroundColor) setBackgroundColor(backgroundColor);
-  });
-
   return (
     <>
       <Provider store={store}>
-        <GlobalStyles font={font} background={background} />
+        <Styles />
         <ThemeProvider theme={original}>
           <RouterProvider router={router} />
         </ThemeProvider>

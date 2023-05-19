@@ -10,6 +10,7 @@ type Theme = {
   background: string;
 };
 
+const test = (font: string) => font;
 export const GlobalStyles = createGlobalStyle<Theme>`
   ${styleReset}
   @font-face {
@@ -26,7 +27,7 @@ export const GlobalStyles = createGlobalStyle<Theme>`
   }
   body {
     font-family: ${({ font }) => {
-      return font;
+      return test(font);
     }};
     background: ${({ background }) => {
       return background;

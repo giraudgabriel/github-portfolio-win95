@@ -17,7 +17,6 @@ export const Settings = () => {
     >
       <GroupBox label="Font Family">
         <Select
-          defaultValue={fontFamily}
           options={AVAILABLE_FONTS}
           value={fontFamily}
           menuMaxHeight={160}
@@ -27,7 +26,6 @@ export const Settings = () => {
       </GroupBox>
       <GroupBox label="Background Color">
         <ColorInput
-          defaultValue={fontFamily}
           value={backgroundColor}
           width={"100%"}
           onChange={(data) => terminalService.background(data.target.value)}

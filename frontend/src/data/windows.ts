@@ -3,10 +3,11 @@ import { Credits } from "@/components/credits";
 import { Settings } from "@/components/settings";
 import { Terminal } from "@/components/terminal";
 import { SelectOption } from "react95/dist/Select/Select.types";
+import { BatExec2, ComputerFind, Inetcfg2301, Settings as SettingsIcon, User } from '@react95/icons';
 
 export const WINDOWS: WindowReducer.Data[] = [
   {
-    icon: "👨‍💻",
+    icon: User({ height: 32, width: 32 }),
     component: Card,
     title: "Profile.exe",
     closeable: true,
@@ -16,7 +17,7 @@ export const WINDOWS: WindowReducer.Data[] = [
   },
   {
     title: "Terminal.exe",
-    icon: "🖥️",
+    icon: BatExec2({ height: 32, width: 32 }),
     component: Terminal,
     closeable: true,
     image: "🖥️",
@@ -28,7 +29,7 @@ export const WINDOWS: WindowReducer.Data[] = [
   },
   {
     title: "Settings.exe",
-    icon: "⚙️",
+    icon: SettingsIcon({ height: 32, width: 32 }),
     component: Settings,
     closeable: true,
     image: "⚙️",
@@ -37,7 +38,7 @@ export const WINDOWS: WindowReducer.Data[] = [
   },
   {
     title: "Credits.exe",
-    icon: "💳",
+    icon: Inetcfg2301({ height: 32, width: 32 }),
     component: Credits,
     closeable: true,
     image: "💳",
@@ -46,18 +47,22 @@ export const WINDOWS: WindowReducer.Data[] = [
   },
   {
     title: "Dev.exe",
-    icon: "👨‍💻",
+    icon: ComputerFind({ height: 32, width: 32 }),
     component: Card,
     closeable: true,
     image: "👨‍💻",
     id: "dev",
     minimazable: true,
     hideInDesktop: true,
-  }
+  },
 ];
 
 export const COMPONENT_BY_ID = Object.fromEntries(
   WINDOWS.map((x) => [x.id, x.component])
+);
+
+export const ICON_BY_ID = Object.fromEntries(
+  WINDOWS.map((x) => [x.id, x.icon])
 );
 
 export const AVAILABLE_FONTS: SelectOption<string>[] = [

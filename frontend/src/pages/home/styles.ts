@@ -103,6 +103,19 @@ export const TitleImage = styled.img`
   object-fit: cover;
   `;
 
+export const MenuItemContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.875rem;
+
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
 interface IStyles {
   WINDOW: React.CSSProperties;
   WINDOW_CONTENT: React.CSSProperties;
@@ -137,7 +150,6 @@ export const STYLES: IStyles = {
   TOOLBAR: {
     position: "fixed",
     bottom: 0,
-    minWidth: window.innerWidth,
     overflow: "auto",
     backgroundColor: "gainsboro",
     width: "100%",
