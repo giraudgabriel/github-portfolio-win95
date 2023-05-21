@@ -200,4 +200,10 @@ export const GlobalStyles = createGlobalStyle<Theme>`
   .text-color {
     color: ${({ background }) => getTextColor(background)};
   }
+
+  .window-content {
+    @media (max-width: 768px) {
+      height: auto !important;
+    }
+  }
 `;

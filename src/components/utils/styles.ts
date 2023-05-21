@@ -29,6 +29,13 @@ export const Row = styled.div<IPropsFlex>`
 
   @media (max-width: 768px) {
     flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+    button {
+      width: 100%;
+    }
   }
 
   @media (max-width: 480px) {

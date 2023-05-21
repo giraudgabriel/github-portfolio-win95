@@ -5,7 +5,7 @@ import { addWindow } from "@/store/reducers/window/window.reducer";
 import { Logo } from "@react95/icons";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { Button, MenuList, MenuListItem, Toolbar } from "react95";
+import { Button, MenuList, MenuListItem, Toolbar, Tooltip } from "react95";
 
 export const Footer = ({ windows }: { windows: WindowReducer.Data[] }) => {
   const [open, setOpen] = useState(false);
@@ -75,11 +75,12 @@ export const Footer = ({ windows }: { windows: WindowReducer.Data[] }) => {
           </Button>
         ))}
         <div
-          style={{ marginLeft: "auto", display: "flex", alignItems: "center" }}
+          style={{
+            marginLeft: "auto",
+            display: "flex",
+            alignItems: "center",
+          }}
         >
-          <Button variant="menu" size="lg">
-            Developed by Gabriel F. Giraud
-          </Button>
           <Button variant="menu" size="lg">
             <span
               style={{

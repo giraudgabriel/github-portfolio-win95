@@ -3,7 +3,8 @@ import { Credits } from "@/components/credits";
 import { Settings } from "@/components/settings";
 import { Terminal } from "@/components/terminal";
 import { SelectOption } from "react95/dist/Select/Select.types";
-import { BatExec2, ComputerFind, Inetcfg2301, Settings as SettingsIcon, User } from '@react95/icons';
+import { BatExec2, Computer5, ComputerFind, Inetcfg2301, Settings as SettingsIcon, User } from '@react95/icons';
+import { Projects } from "@/components/projects";
 
 export const WINDOWS: WindowReducer.Data[] = [
   {
@@ -55,6 +56,15 @@ export const WINDOWS: WindowReducer.Data[] = [
     minimazable: true,
     hideInDesktop: true,
   },
+  {
+    title: "Projects.exe",
+    icon: Computer5({ height: 32, width: 32 }),
+    component: Projects,
+    closeable: true,
+    image: "👨‍💻",
+    id: "projects",
+    minimazable: true,
+  }
 ];
 
 export const COMPONENT_BY_ID = Object.fromEntries(

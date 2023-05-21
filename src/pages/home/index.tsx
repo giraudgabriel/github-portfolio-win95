@@ -47,6 +47,7 @@ export const Home: React.FC = (): JSX.Element => {
   return (
     <main style={STYLES.APP_BAR} onDoubleClick={onDoubleClick}>
       <WindowContent
+        className="window-content"
         style={{
           ...STYLES.WINDOW_CONTENT,
           background: backgroundColor,
